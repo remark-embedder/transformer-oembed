@@ -64,7 +64,7 @@ import remark from 'remark'
 import html from 'remark-html'
 import remarkEmbedder from '@remark-embedder/core'
 import oembedTransformer from '@remark-embedder/transformer-oembed'
-// or, if you're using CJS:
+// or, if you're using CommonJS require:
 // const {default: oembedTransformer} = require('@remark-embedder/transformer-oembed')
 
 const exampleMarkdown = `
