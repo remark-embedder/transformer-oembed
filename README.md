@@ -19,15 +19,16 @@
 
 ## The problem
 
-You're using [`@remark-embedder/core`](https://github.com/remark-embedder/core)
-to automatically convert URLs in your markdown to the embedded version of those
-URLs and want to have a transform for providers that support an oEmbed API.
-[Learn more about oEmbed from oembed.com](https://oembed.com)
+You're using [`@remark-embedder/core`][@remark-embedder/core] to automatically
+convert URLs in your markdown to the embedded version of those URLs and want to
+have a transform for providers that support an oEmbed API. [Learn more about
+oEmbed from oembed.com][oembed.com]
 
 ## This solution
 
-This is a `@remark-embedder` transform for supported oembed API providers. Find
-the list of supported providers on [oembed.com](https://oembed.com).
+This is a [`@remark-embedder`][@remark-embedder/core] transform for supported
+oembed API providers. Find the list of supported providers on
+[oembed.com][oembed.com].
 
 ## Table of Contents
 
@@ -60,12 +61,12 @@ npm install @remark-embedder/transformer-oembed
 ## Usage
 
 ```typescript
-import remark from 'remark'
-import html from 'remark-html'
 import remarkEmbedder from '@remark-embedder/core'
 import oembedTransformer from '@remark-embedder/transformer-oembed'
 // or, if you're using CommonJS require:
 // const {default: oembedTransformer} = require('@remark-embedder/transformer-oembed')
+import remark from 'remark'
+import html from 'remark-html'
 
 const exampleMarkdown = `
 # My favorite YouTube video
@@ -116,7 +117,7 @@ This will result in:
 Some oembed providers offer special configuration via query parameters. You can
 provide those via config:
 
-```javascript
+```typescript
 // ...
 import type {Config} from '@remark-embedder/transformer-oembed'
 
@@ -141,8 +142,8 @@ async function go() {
 // ...
 ```
 
-That results in (notice the `data-` attributes which are specific to
-[twitter's oEmbed API](https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/get-statuses-oembed)):
+That results in (notice the `data-` attributes which are specific to [twitter's
+oEmbed API][twitter-oembed-docs]):
 
 ```html
 <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
@@ -160,7 +161,7 @@ That results in (notice the `data-` attributes which are specific to
 ```
 
 This could also be used to provide an access token for providers that require
-this (like [Instagram](https://developers.facebook.com/docs/instagram/oembed/)).
+this (like [Instagram][instagram-oembed-docs]).
 
 ### Config as a function
 
@@ -184,12 +185,12 @@ const remarkEmbedderConfig = {
 ## Inspiration
 
 It's a long story... Check out the inspiration on
-[`@remark-embedder/core`](https://github.com/remark-embedder/core)
+[`@remark-embedder/core`][@remark-embedder/core]
 
 ## Other Solutions
 
-- [remark-oembed](https://npm.im/remark-oembed): This one requires client-side
-  JS to work which was unacceptable for our use cases.
+- [`remark-oembed`][remark-oembed]: This one requires client-side JS to work
+  which was unacceptable for our use cases.
 
 ## Issues
 
@@ -218,7 +219,8 @@ Thanks goes to these people ([emoji key][emojis]):
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="https://github.com/remark-embedder/transformer-oembed/commits?author=kentcdodds" title="Code">💻</a> <a href="https://github.com/remark-embedder/transformer-oembed/commits?author=kentcdodds" title="Documentation">📖</a> <a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/remark-embedder/transformer-oembed/commits?author=kentcdodds" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars.githubusercontent.com/u/1500684?v=3?s=100" width="100px;" alt=""/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="https://github.com/remark-embedder/oembed/commits?author=kentcdodds" title="Code">💻</a> <a href="https://github.com/remark-embedder/oembed/commits?author=kentcdodds" title="Documentation">📖</a> <a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/remark-embedder/oembed/commits?author=kentcdodds" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://michaeldeboey.be"><img src="https://avatars3.githubusercontent.com/u/6643991?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michaël De Boey</b></sub></a><br /><a href="https://github.com/remark-embedder/oembed/commits?author=MichaelDeBoey" title="Documentation">📖</a></td>
   </tr>
 </table>
 
@@ -257,4 +259,10 @@ MIT
 [bugs]: https://github.com/remark-embedder/transformer-oembed/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Acreated-desc+label%3Abug
 [requests]: https://github.com/remark-embedder/transformer-oembed/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
 [good-first-issue]: https://github.com/remark-embedder/transformer-oembed/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement+label%3A%22good+first+issue%22
+
+[@remark-embedder/core]: https://github.com/remark-embedder/core
+[instagram-oembed-docs]: https://developers.facebook.com/docs/instagram/oembed
+[oembed.com]: https://oembed.com
+[remark-oembed]: https://github.com/sergioramos/remark-oembed
+[twitter-oembed-docs]: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/get-statuses-oembed
 <!-- prettier-ignore-end -->
