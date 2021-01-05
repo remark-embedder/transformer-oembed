@@ -1,5 +1,5 @@
 {
-  "projectName": "oembed",
+  "projectName": "transformer-oembed",
   "projectOwner": "remark-embedder",
   "imageSize": 100,
   "commit": false,
