@@ -14,7 +14,7 @@ type Provider = {
   provider_name: string
   provider_url: string
   endpoints: Array<{
-    schemes?: Array<string>
+    schemes?: string[]
     discovery?: boolean
     url: string
   }>
