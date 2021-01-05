@@ -7,7 +7,12 @@
   "description": "@remark-embedder transformer for oEmbed supported links",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "keywords": [],
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "remark-embedder",
+    "oEmbed"
+  ],
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com)",
   "license": "MIT",
   "engines": {
