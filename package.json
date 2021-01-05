@@ -48,7 +48,7 @@
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
-    "@remark-embedder/core": ">=1"
+    "@remark-embedder/core": "^1.0.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js",
