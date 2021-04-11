@@ -54,13 +54,13 @@ oembed API providers. Find the list of supported providers on
 This module is distributed via [npm][npm] which is bundled with [node][node] and
 should be installed as one of your project's `dependencies`:
 
-```
+```shell
 npm install @remark-embedder/transformer-oembed
 ```
 
 ## Usage
 
-```typescript
+```ts
 import remarkEmbedder from '@remark-embedder/core'
 import oembedTransformer from '@remark-embedder/transformer-oembed'
 // or, if you're using CommonJS require:
@@ -117,7 +117,7 @@ This will result in:
 Some oembed providers offer special configuration via query parameters. You can
 provide those via config:
 
-```typescript
+```ts
 // ...
 import type {Config} from '@remark-embedder/transformer-oembed'
 
@@ -168,7 +168,7 @@ this (like [Instagram][instagram-oembed-docs]).
 You can also provide configuration as a function so you can determine what
 configuration to give based on the provider and/or the URL. Like so:
 
-```typescript
+```ts
 const oembedConfig: Config = ({url, provider}) => {
   if (provider.provider_name === 'Instagram') {
     return {
