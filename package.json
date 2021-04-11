@@ -40,17 +40,18 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.5",
-    "make-fetch-happen": "^8.0.12"
+    "@babel/runtime": "^7.13.10",
+    "@types/make-fetch-happen": "^8.0.1",
+    "make-fetch-happen": "^8.0.14"
   },
   "devDependencies": {
-    "@remark-embedder/core": "^1.2.1",
-    "@types/jest": "^26.0.19",
-    "kcd-scripts": "^7.5.3",
-    "msw": "^0.24.2",
+    "@remark-embedder/core": "^1.2.4",
+    "@types/jest": "^26.0.22",
+    "kcd-scripts": "^8.3.0",
+    "msw": "^0.28.1",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "@remark-embedder/core": "^1.0.0"

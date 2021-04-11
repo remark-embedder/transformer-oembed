@@ -1,11 +1,12 @@
+import remarkEmbedder from '@remark-embedder/core'
 import {rest} from 'msw'
-import type {MockedRequest} from 'msw'
+import type {RestRequest} from 'msw'
 import {setupServer} from 'msw/node'
 import remark from 'remark'
 import html from 'remark-html'
-import remarkEmbedder from '@remark-embedder/core'
-import transformer from '..'
-import type {Config} from '..'
+
+import transformer from '../'
+import type {Config} from '../'
 
 // this removes the quotes around strings...
 const unquoteSerializer = {
@@ -139,7 +140,7 @@ test('config function does not need to return anything', async () => {
 })
 
 test('sends the correct search params', async () => {
-  let request: MockedRequest
+  let request: RestRequest
 
   server.use(
     rest.get('https://publish.twitter.com/oembed', (req, res, ctx) => {
