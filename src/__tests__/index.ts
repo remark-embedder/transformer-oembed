@@ -10,19 +10,19 @@ import type {Config} from '../'
 
 // this removes the quotes around strings...
 const unquoteSerializer = {
-  print: (val: unknown) => (val as string).trim(),
-  test: (val: string) => typeof val === 'string',
+  serialize: (val: string) => val.trim(),
+  test: (val: unknown) => typeof val === 'string',
 }
 
 expect.addSnapshotSerializer(unquoteSerializer)
 
 const server = setupServer(
-  rest.get('https://oembed.com/providers.json', (req, res, ctx) => {
-    return res(
+  rest.get('https://oembed.com/providers.json', (req, res, ctx) =>
+    res(
       ctx.json([
         {
           provider_name: 'Beautiful.AI',
-          provider_url: 'https://www.beautiful.ai/',
+          provider_url: 'https://www.beautiful.ai',
           endpoints: [
             {
               url: 'https://www.beautiful.ai/api/oembed',
@@ -33,7 +33,7 @@ const server = setupServer(
         },
         {
           provider_name: 'Twitter',
-          provider_url: 'http://www.twitter.com/',
+          provider_url: 'http://www.twitter.com',
           endpoints: [
             {
               schemes: [
@@ -47,16 +47,16 @@ const server = setupServer(
           ],
         },
       ]),
-    )
-  }),
-  rest.get('https://publish.twitter.com/oembed', (req, res, ctx) => {
-    return res(
+    ),
+  ),
+  rest.get('https://publish.twitter.com/oembed', (req, res, ctx) =>
+    res(
       ctx.json({
         html:
           '<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark"><p lang="en" dir="ltr">I spent a few minutes working on this, just for you all. I promise, it wont disappoint. Though it may surprise 🎉<br><br>🙏 <a href="https://t.co/wgTJYYHOzD">https://t.co/wgTJYYHOzD</a></p>— Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/783161196945944580?ref_src=twsrc%5Etfw">October 4, 2016</a></blockquote>',
       }),
-    )
-  }),
+    ),
+  ),
 )
 
 // enable API mocking in test runs using the same request handlers
@@ -170,9 +170,3 @@ test('sends the correct search params', async () => {
     `https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2Fkentcdodds%2Fstatus%2F783161196945944580&dnt=true&omit_script=true&theme=dark&format=json`,
   )
 })
-
-/*
-eslint
-  @typescript-eslint/no-unsafe-assignment: "off",
-
-*/
