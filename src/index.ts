@@ -4,7 +4,7 @@ import type {Transformer} from '@remark-embedder/core'
 import fetch from 'make-fetch-happen'
 
 fetch.defaults({
-  cacheManager: path.join(
+  cachePath: path.join(
     process.cwd(),
     'node_modules/.cache/@remark-embedder/transformer-oembed/fetch',
   ),
@@ -31,6 +31,7 @@ async function getProviders(): Promise<Providers> {
     const res = await fetch('https://oembed.com/providers.json')
     getProviders.cache = (await res.json()) as Providers
   }
+
   return getProviders.cache
 }
 
