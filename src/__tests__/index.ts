@@ -3,7 +3,7 @@ import {rest} from 'msw'
 import type {RestRequest} from 'msw'
 import {setupServer} from 'msw/node'
 import remark from 'remark'
-import html from 'remark-html'
+import remarkHTML from 'remark-html'
 
 import transformer from '../'
 import type {Config} from '../'
@@ -52,8 +52,7 @@ const server = setupServer(
   rest.get('https://publish.twitter.com/oembed', (req, res, ctx) =>
     res(
       ctx.json({
-        html:
-          '<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark"><p lang="en" dir="ltr">I spent a few minutes working on this, just for you all. I promise, it wont disappoint. Though it may surprise 🎉<br><br>🙏 <a href="https://t.co/wgTJYYHOzD">https://t.co/wgTJYYHOzD</a></p>— Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/783161196945944580?ref_src=twsrc%5Etfw">October 4, 2016</a></blockquote>',
+        html: '<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark"><p lang="en" dir="ltr">I spent a few minutes working on this, just for you all. I promise, it wont disappoint. Though it may surprise 🎉<br><br>🙏 <a href="https://t.co/wgTJYYHOzD">https://t.co/wgTJYYHOzD</a></p>— Kent C. Dodds (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/783161196945944580?ref_src=twsrc%5Etfw">October 4, 2016</a></blockquote>',
       }),
     ),
   ),
@@ -75,7 +74,7 @@ test('smoke test', async () => {
         ],
       ],
     })
-    .use(html)
+    .use(remarkHTML, {sanitize: false})
     .process(
       `
 Here's a great tweet:
@@ -101,7 +100,7 @@ test('no config required', async () => {
     .use(remarkEmbedder, {
       transformers: [transformer],
     })
-    .use(html)
+    .use(remarkHTML, {sanitize: false})
     .process(`https://twitter.com/kentcdodds/status/783161196945944580`)
 
   expect(result.toString()).toMatchInlineSnapshot(
@@ -117,7 +116,7 @@ test('config can be a function', async () => {
     .use(remarkEmbedder, {
       transformers: [[transformer, config]],
     })
-    .use(html)
+    .use(remarkHTML, {sanitize: false})
     .process(`https://twitter.com/kentcdodds/status/783161196945944580`)
 
   expect(result.toString()).toMatchInlineSnapshot(
@@ -131,7 +130,7 @@ test('config function does not need to return anything', async () => {
     .use(remarkEmbedder, {
       transformers: [[transformer, config]],
     })
-    .use(html)
+    .use(remarkHTML, {sanitize: false})
     .process(`https://twitter.com/kentcdodds/status/783161196945944580`)
 
   expect(result.toString()).toMatchInlineSnapshot(
@@ -162,7 +161,7 @@ test('sends the correct search params', async () => {
         ],
       ],
     })
-    .use(html)
+    .use(remarkHTML, {sanitize: false})
     .process(`https://twitter.com/kentcdodds/status/783161196945944580`)
 
   // @ts-expect-error it doesn't think request will be assigned by now... But it will!
