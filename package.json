@@ -16,7 +16,7 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com)",
   "license": "MIT",
   "engines": {
-    "node": ">=10",
+    "node": ">=12",
     "npm": ">=6"
   },
   "repository": {
@@ -40,18 +40,18 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.14.8",
-    "@types/make-fetch-happen": "^9.0.0",
-    "make-fetch-happen": "^9.0.4"
+    "@babel/runtime": "^7.16.0",
+    "@types/make-fetch-happen": "^9.0.1",
+    "make-fetch-happen": "^9.1.0"
   },
   "devDependencies": {
-    "@remark-embedder/core": "^1.4.2",
-    "@types/jest": "^27.0.0",
-    "kcd-scripts": "^11.2.0",
+    "@remark-embedder/core": "^2.0.0",
+    "@types/jest": "^27.0.2",
+    "kcd-scripts": "^11.2.2",
     "msw": "^0.35.0",
     "remark": "^13.0.0",
-    "remark-html": "^13.0.1",
-    "typescript": "^4.3.5"
+    "remark-html": "^13.0.2",
+    "typescript": "^4.4.4"
   },
   "peerDependencies": {
     "@remark-embedder/core": "^1.0.0"
