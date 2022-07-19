@@ -2,7 +2,7 @@ import remarkEmbedder from '@remark-embedder/core'
 import {rest} from 'msw'
 import type {RestRequest} from 'msw'
 import {setupServer} from 'msw/node'
-import remark from 'remark'
+import {remark} from 'remark'
 import remarkHTML from 'remark-html'
 
 import transformer from '../'
@@ -61,8 +61,8 @@ const server = setupServer(
 // enable API mocking in test runs using the same request handlers
 // as for the client-side mocking.
 beforeAll(() => server.listen())
-afterAll(() => server.close())
 afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
 test('smoke test', async () => {
   const result = await remark()
