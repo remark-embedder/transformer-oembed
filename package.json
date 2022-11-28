@@ -48,7 +48,7 @@
     "@remark-embedder/core": "^3.0.0",
     "@types/jest": "^28.1.6",
     "kcd-scripts": "^12.2.0",
-    "msw": "^0.44.2",
+    "msw": "^0.49.1",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "typescript": "^4.7.4"
