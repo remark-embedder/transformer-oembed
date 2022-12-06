@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@remark-embedder/core": "^3.0.0",
-    "@types/jest": "^28.1.6",
+    "@types/jest": "^29.2.4",
     "kcd-scripts": "^12.2.0",
     "msw": "^0.44.2",
     "remark": "^14.0.2",
