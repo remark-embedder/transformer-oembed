@@ -1,6 +1,6 @@
 import path from 'path'
 import {URL} from 'url'
-import type {Transformer} from '@remark-embedder/core'
+import {type Transformer} from '@remark-embedder/core'
 import fetch from 'make-fetch-happen'
 
 fetch.defaults({
@@ -28,7 +28,7 @@ declare namespace getProviders {
 
 async function getProviders(): Promise<Providers> {
   if (!getProviders.cache) {
-    const res = await fetch('https://oembed.com/providers.json')
+    const res = await fetch('http://oembed.com/providers.json')
     getProviders.cache = (await res.json()) as Providers
   }
 
