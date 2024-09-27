@@ -42,7 +42,7 @@
   "dependencies": {
     "@babel/runtime": "^7.24.5",
     "@types/make-fetch-happen": "^10.0.4",
-    "make-fetch-happen": "^13.0.1"
+    "make-fetch-happen": "^14.0.0"
   },
   "devDependencies": {
     "@remark-embedder/core": "^3.0.3",
