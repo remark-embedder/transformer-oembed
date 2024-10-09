@@ -40,9 +40,7 @@
     "validate": "kcd-scripts validate"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.5",
-    "@types/make-fetch-happen": "^10.0.4",
-    "make-fetch-happen": "^13.0.1"
+    "@babel/runtime": "^7.24.5"
   },
   "devDependencies": {
     "@remark-embedder/core": "^3.0.3",
