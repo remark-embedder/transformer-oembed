@@ -18,9 +18,6 @@ jobs:
   main:
     # ignore all-contributors PRs
     if: ${{ !contains(github.head_ref, 'all-contributors') }}
-    strategy:
-      matrix:
-        node: [lts/-1, lts/*, latest]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
