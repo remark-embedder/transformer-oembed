@@ -20,7 +20,7 @@ jobs:
     if: ${{ !contains(github.head_ref, 'all-contributors') }}
     strategy:
       matrix:
-        node: [lts/-1, lts/*, latest]
+        node: [20, 22, 23]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -61,7 +61,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: lts/*
+          node-version: 22
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
