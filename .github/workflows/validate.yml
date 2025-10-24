@@ -58,7 +58,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: lts/*
+          node-version: 22
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
